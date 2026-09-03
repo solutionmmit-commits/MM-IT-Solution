@@ -240,7 +240,8 @@ footer h2{color:var(--paper); font-size:26px;}
 .foot-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:28px;}
 .foot-info div{margin-bottom:14px; font-size:14.5px; color:#D8E2E4;}
 .foot-info b{color:var(--paper); display:block; font-size:13px; letter-spacing:.4px; margin-bottom:3px; font-family:'Baloo Da 2';}
-.map-box{border:2px dashed #7C97A0; height:180px; display:flex; align-items:center; justify-content:center; color:#9EB3B9; font-size:13.5px;}
+.map-box{border:1px solid rgba(255,255,255,0.15); height:220px; border-radius:12px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.2);}
+.map-box iframe{width:100%; height:100%; border:0;}
 .fb-btn{
   display:inline-flex; align-items:center; gap:8px; margin-top:18px; background:var(--stamp); color:var(--paper);
   padding:11px 20px; border-radius:2px; font-weight:700; font-size:14px;
