@@ -69,6 +69,7 @@
     loadContentFromBackend();
     injectAdminUI();
     bindGlobalEvents();
+    checkSecretLoginTriggers();
   });
 
   // Check Session
@@ -101,28 +102,69 @@
     renderSiteData();
   }
 
+  // Secret Admin Login Triggers (URL, Keyboard, Footer Triple-Click)
+  function checkSecretLoginTriggers() {
+    // 1. URL trigger: e.g. index.html?admin or index.html?login or #admin
+    const search = window.location.search.toLowerCase();
+    const hash = window.location.hash.toLowerCase();
+    if (search.includes('admin') || search.includes('login') || hash === '#admin' || hash === '#login') {
+      if (!isAdmin) {
+        setTimeout(() => {
+          const loginModal = document.getElementById('cms-login-modal');
+          if (loginModal) loginModal.style.display = 'flex';
+        }, 300);
+      }
+    }
+
+    // 2. Keyboard shortcut: Ctrl + Shift + A or Alt + L
+    document.addEventListener('keydown', (e) => {
+      const isCmdOrCtrl = e.ctrlKey || e.metaKey;
+      if ((isCmdOrCtrl && e.shiftKey && (e.key === 'A' || e.key === 'a')) || (e.altKey && (e.key === 'L' || e.key === 'l'))) {
+        e.preventDefault();
+        const loginModal = document.getElementById('cms-login-modal');
+        if (loginModal) {
+          loginModal.style.display = (loginModal.style.display === 'none' || !loginModal.style.display) ? 'flex' : 'none';
+        }
+      }
+    });
+
+    // 3. Secret Triple-Click on Footer
+    let clickCount = 0;
+    let clickTimer = null;
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('footer') || e.target.closest('.site-footer') || e.target.closest('.copyright') || e.target.closest('.footer-bottom')) {
+        clickCount++;
+        if (clickCount >= 3) {
+          clickCount = 0;
+          clearTimeout(clickTimer);
+          const loginModal = document.getElementById('cms-login-modal');
+          if (loginModal && !isAdmin) loginModal.style.display = 'flex';
+        } else {
+          clearTimeout(clickTimer);
+          clickTimer = setTimeout(() => { clickCount = 0; }, 1200);
+        }
+      }
+    });
+  }
+
   // Inject Top Admin Bar and Modals
   function injectAdminUI() {
-    // 1. Admin Top Bar
+    // 1. Admin Top Bar (Hidden for public visitors)
     const adminBarHtml = `
-      <div id="cms-admin-bar" class="cms-bar">
+      <div id="cms-admin-bar" class="cms-bar" style="${isAdmin ? 'display:flex;' : 'display:none;'}">
         <div class="cms-bar-brand">
           <span class="cms-logo-icon">⚡</span> 
           <span>MM IT Solution <strong>Visual Editor (Elementor Mode)</strong></span>
           <span id="cms-status-tag" class="cms-badge ${isEditMode ? 'active' : ''}">${isEditMode ? '🟢 Edit Mode ON' : '👁️ Public View'}</span>
         </div>
         <div class="cms-bar-actions">
-          ${!isAdmin ? `
-            <button id="cms-login-btn" class="cms-btn cms-btn-login">🔑 অ্যাডমিন লগইন</button>
-          ` : `
-            <button id="cms-toggle-edit" class="cms-btn ${isEditMode ? 'cms-btn-active' : 'cms-btn-secondary'}">
-              ${isEditMode ? '✖️ এডিট বন্ধ করুন' : '✏️ এডিট মোড অন করুন'}
-            </button>
-            <button id="cms-add-gallery-btn" class="cms-btn cms-btn-outline" style="${isEditMode ? '' : 'display:none;'}">📷 + ছবি যোগ</button>
-            <button id="cms-add-review-btn" class="cms-btn cms-btn-outline" style="${(isEditMode && (pageKey === 'index.html' || pageKey === '')) ? '' : 'display:none;'}">💬 + রিভিউ যোগ</button>
-            <button id="cms-save-btn" class="cms-btn cms-btn-save" style="${isEditMode ? '' : 'display:none;'}">💾 পরিবর্তন সেভ করুন</button>
-            <button id="cms-logout-btn" class="cms-btn cms-btn-danger">🚪 লগআউট</button>
-          `}
+          <button id="cms-toggle-edit" class="cms-btn ${isEditMode ? 'cms-btn-active' : 'cms-btn-secondary'}">
+            ${isEditMode ? '✖️ এডিট বন্ধ করুন' : '✏️ এডিট মোড অন করুন'}
+          </button>
+          <button id="cms-add-gallery-btn" class="cms-btn cms-btn-outline" style="${isEditMode ? '' : 'display:none;'}">📷 + ছবি যোগ</button>
+          <button id="cms-add-review-btn" class="cms-btn cms-btn-outline" style="${(isEditMode && (pageKey === 'index.html' || pageKey === '')) ? '' : 'display:none;'}">💬 + রিভিউ যোগ</button>
+          <button id="cms-save-btn" class="cms-btn cms-btn-save" style="${isEditMode ? '' : 'display:none;'}">💾 পরিবর্তন সেভ করুন</button>
+          <button id="cms-logout-btn" class="cms-btn cms-btn-danger">🚪 লগআউট</button>
         </div>
       </div>
     `;
@@ -348,6 +390,9 @@
     const adminBar = document.getElementById('cms-admin-bar');
     if (!adminBar) return;
     
+    adminBar.style.display = isAdmin ? 'flex' : 'none';
+    if (!isAdmin) return;
+
     const actions = adminBar.querySelector('.cms-bar-actions');
     const statusTag = document.getElementById('cms-status-tag');
     
@@ -357,9 +402,7 @@
     }
 
     if (actions) {
-      actions.innerHTML = !isAdmin ? `
-        <button id="cms-login-btn" class="cms-btn cms-btn-login">🔑 অ্যাডমিন লগইন</button>
-      ` : `
+      actions.innerHTML = `
         <button id="cms-toggle-edit" class="cms-btn ${isEditMode ? 'cms-btn-active' : 'cms-btn-secondary'}">
           ${isEditMode ? '✖️ এডিট বন্ধ করুন' : '✏️ এডিট মোড অন করুন'}
         </button>
