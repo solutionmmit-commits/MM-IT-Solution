@@ -75,6 +75,13 @@ nav.links a.active{color:var(--stamp); border-bottom:2px solid var(--stamp); pad
 }
 .call-btn:hover{background:var(--stamp); border-color:var(--stamp);}
 
+.wa-btn{
+  background:#25D366; color:#fff; padding:7px 13px; border-radius:2px;
+  font-weight:600; font-size:13px; border:2px solid #1eb85a; text-decoration:none; white-space:nowrap;
+  display:inline-flex; align-items:center; gap:6px; margin-left:8px;
+}
+.wa-btn:hover{background:#1eb85a; border-color:#1eb85a;}
+
 .cms-lang-btn {
   background: var(--teal);
   color: #ffffff;
