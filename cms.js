@@ -57,19 +57,85 @@
   // Current page identifier
   const pageKey = window.location.pathname.split('/').pop() || 'index.html';
 
-  function getActiveGalleryKey() {
-    if (pageKey === 'offline-services.html') return 'offlineGallery';
-    if (pageKey === 'online-services.html') return 'onlineGallery';
-    return 'homeGallery';
-  }
+  let currentLang = localStorage.getItem('mm_lang') || 'bn';
+
+  // Comprehensive i18n Translation Dictionary (Bangla <-> English)
+  const i18nDict = {
+    en: {
+      "হোম": "Home",
+      "অফলাইন সেবা": "Offline Services",
+      "অনলাইন সেবা": "Online Services",
+      "গ্যালারি": "Gallery",
+      "রিভিউ": "Reviews",
+      "যোগাযোগ": "Contact",
+      "পঞ্চগড় সদর, পঞ্চগড়": "Panchagarh Sadar, Panchagarh",
+      "আপনার সকল <span>অনলাইন ও অফলাইন</span> তথ্যপ্রযুক্তি সেবার ঠিকানা": "Your One-Stop Destination for <span>Online &amp; Offline</span> IT Services",
+      "আপনার সকল অনলাইন ও অফলাইন তথ্যপ্রযুক্তি সেবার ঠিকানা": "Your One-Stop Destination for Online &amp; Offline IT Services",
+      "ফটোকপি, প্রিন্টিং, কম্পোজিং থেকে শুরু করে ওয়েবসাইট, ডিজিটাল মার্কেটিং ও আইটি সাপোর্ট — এক ছাদের নিচে দ্রুত ও নির্ভরযোগ্য সেবা।": "Photocopying, printing, composing to websites, digital marketing &amp; IT support — fast and reliable services under one roof.",
+      "আমাদের সেবাসমূহ": "Our Services",
+      "আমরা যেসকল কাজ করি": "Services We Provide",
+      "কেন বেছে নেবেন MM IT Solution?": "Why Choose MM IT Solution?",
+      "দক্ষ টেকনিশিয়ান": "Skilled Technicians",
+      "অভিজ্ঞ ও দক্ষ কর্মী দ্বারা কাজ সম্পাদন": "Work handled by experienced &amp; skilled professionals",
+      "দ্রুত কাজ": "Fast Service",
+      "অপেক্ষা ছাড়াই দ্রুততম সময়ে সেবা": "Quick turnaround without long waiting times",
+      "সাশ্রয়ী মূল্য": "Affordable Price",
+      "সকলের জন্য সহজলভ্য মূল্যে সেবা": "Budget-friendly prices accessible for everyone",
+      "আন্তরিক সহায়তা": "Friendly Support",
+      "প্রতিটি গ্রাহককে ব্যক্তিগত মনোযোগ": "Personalized attention &amp; care for every customer",
+      "আমাদের কাজের নমুনা": "Our Work Portfolio",
+      "তারা কী বলেন": "Client Reviews",
+      "যোগাযোগ করুন": "Contact Us",
+      "ঠিকানা": "Address",
+      "ফোন": "Phone",
+      "ইমেইল": "Email",
+      "সময়": "Hours",
+      "প্রতিদিন সকাল ৯টা – রাত ৯টা": "Everyday 9:00 AM – 9:00 PM",
+      "প্রতিদিন সকাল ৯টা – রাত ৯টা (সবসময় খোলা)": "Everyday 9:00 AM – 9:00 PM (Always Open)",
+      "পঞ্চগড় সদর (চৌরঙ্গী মোড় সংলগ্ন), পঞ্চগড়": "Panchagarh Sadar (Near Chowrangi More), Panchagarh",
+      "ফেসবুক পেজ দেখুন →": "Visit Facebook Page →",
+      "সকল প্রকার আইটি সেবার নির্ভরযোগ্য ঠিকানা": "Your trusted destination for all IT solutions",
+      "আমাদের অফলাইন সেবাসমূহ": "Our Offline Computer Services",
+      "দৈনন্দিন কাজের জন্য নির্ভরযোগ্য কম্পিউটার, প্রিন্টিং ও ডকুমেন্ট সেবা": "Reliable printing, photocopying, composing &amp; photo studio services for daily needs",
+      "আমাদের অনলাইন ও ডিজিটাল সেবাসমূহ": "Our Online &amp; Digital Services",
+      "আপনার ব্যবসাকে ডিজিটাল করার সকল মাধ্যম — ওয়েবসাইট, ব্র্যান্ডিং ও অনলাইন আবেদন": "Empower your business digitally — websites, branding, software &amp; online applications",
+      "এক নজরে আমাদের সকল ডিজিটাল সেবার প্যাকেজ": "Digital Service Packages",
+      "প্যাকেজ সমূহ": "Service Packages",
+      "যেভাবে অনলাইন সেবা গ্রহণ করবেন": "How to Order Online Services",
+      "অনলাইন আবেদন সেবাসমূহ": "Online Application Services",
+      "ওয়েবসাইট ও সফটওয়্যার ডেভেলপমেন্ট": "Website &amp; Software Development",
+      "ডিজিটাল মার্কেটিং ও ফেসবুক অ্যাডস": "Digital Marketing &amp; Facebook Ads",
+      "গ্রাফিক ডিজাইন ও ব্রান্ডিং": "Graphic Design &amp; Branding",
+      "ফটোকপি ও কালার প্রিন্টিং": "Photocopy &amp; Color Printing",
+      "স্টুдио ছবি ও পাসপোর্ট সাইজ ফটো": "Studio Photo &amp; Passport Size Photo",
+      "কম্পিউটার টাইপিং ও সিভি তৈরি": "Computer Typing &amp; Resume Making",
+      "লেমিনেটিং ও বাইন্ডিং সেবা": "Laminating &amp; Binding Services",
+      "অর্ডার করুন": "Order Now",
+      "আজই যোগাযোগ করুন": "Contact Us Today",
+      "বিস্তারিত জানুন": "Learn More",
+      "কল করুন": "Call Now",
+      "মেসেজ দিন": "Send Message",
+      "টিপস: এডিট মোড অন করে যেকোনো বক্সে ক্লিক করে সরাসরি আপনার দোকানের ছবি বা কাজের ছবি আপলোড করুন।": "Tip: Turn on Edit Mode to directly upload photos of your shop or work samples.",
+      "দোকানের ছবি বসান": "Upload Shop Photo",
+      "স্টুдиоর ছবি বসান": "Upload Studio Photo",
+      "কাজের নমুনা বসান": "Upload Work Sample",
+      "গ্রাহকের ছবি বসান": "Upload Customer Photo",
+      "দোকানের সামনের দৃশ্য": "Front View of Shop",
+      "ফটোকপি ও কম্পিউটার ল্যাব": "Photocopy &amp; Computer Lab",
+      "গ্রাফিক ও সাইট ডিজাইন কাজ": "Graphic &amp; Web Design Work",
+      "সন্তুষ্ট গ্রাহকদের সেবাদান": "Satisfied Customers"
+    }
+  };
 
   // Initialize CMS on DOM Ready
   document.addEventListener('DOMContentLoaded', () => {
     checkAdminSession();
     loadContentFromBackend();
     injectAdminUI();
+    setupLanguageUI();
     bindGlobalEvents();
     checkSecretLoginTriggers();
+    applyLanguage();
   });
 
   // Check Session
@@ -268,6 +334,13 @@
         document.getElementById('cms-upload-modal').style.display = 'none';
       }
 
+      if (e.target.closest('#cms-lang-btn')) {
+        currentLang = (currentLang === 'bn') ? 'en' : 'bn';
+        localStorage.setItem('mm_lang', currentLang);
+        applyLanguage();
+        showToast(currentLang === 'en' ? '🌐 Switched to English' : '🌐 ভাষা বাংলায় পরিবর্তন করা হয়েছে', 'info');
+      }
+
       // Logo click handler in edit mode
       if (isEditMode && e.target.closest('#cms-logo-box')) {
         openImagePicker('shop.logoImg');
@@ -418,6 +491,71 @@
     } else {
       document.body.classList.remove('cms-edit-active');
     }
+  }
+
+  function getActiveGalleryKey() {
+    if (pageKey === 'offline-services.html') return 'offlineGallery';
+    if (pageKey === 'online-services.html') return 'onlineGallery';
+    return 'homeGallery';
+  }
+
+  // Setup Language Switcher Button in Header Nav
+  function setupLanguageUI() {
+    const nav = document.querySelector('header .nav') || document.querySelector('.nav');
+    if (nav && !document.getElementById('cms-lang-btn')) {
+      const btn = document.createElement('button');
+      btn.id = 'cms-lang-btn';
+      btn.className = 'cms-lang-btn';
+      btn.setAttribute('type', 'button');
+      btn.setAttribute('title', 'ভাষা পরিবর্তন / Switch Language');
+      nav.appendChild(btn);
+      updateLangBtnUI();
+    }
+  }
+
+  // Update Language Button Text
+  function updateLangBtnUI() {
+    const btn = document.getElementById('cms-lang-btn');
+    if (!btn) return;
+    if (currentLang === 'bn') {
+      btn.innerHTML = `<span>🇬🇧</span> <span>English</span>`;
+    } else {
+      btn.innerHTML = `<span>🇧🇩</span> <span>বাংলা</span>`;
+    }
+  }
+
+  // Apply Language Translations Across the Page
+  function applyLanguage() {
+    const isEn = (currentLang === 'en');
+    document.documentElement.lang = currentLang;
+
+    const selectors = 'nav.links a, .hero h1, .hero p.lead, .kicker, section h2, section h3, .why-card h3, .why-card p, .svc-card h3, .svc-card p, .pkg-card h3, .pkg-sub, .pkg-price, .pkg-list li, .step-card h3, .step-card p, .foot-info div b, .foot-info div span, .fb-btn, .copyright span, .btn-primary, .btn-secondary, .call-btn, .gallery-note, .gallery-caption';
+
+    document.querySelectorAll(selectors).forEach(el => {
+      if (el.closest('#cms-admin-bar') || el.closest('.cms-modal') || el.closest('#cms-toast-container') || el.id === 'cms-lang-btn') return;
+
+      // Store Bangla original text
+      if (!el.hasAttribute('data-bn-html')) {
+        el.setAttribute('data-bn-html', el.innerHTML.trim());
+      }
+
+      const bnHtml = el.getAttribute('data-bn-html');
+      
+      if (isEn) {
+        if (i18nDict.en[bnHtml]) {
+          el.innerHTML = i18nDict.en[bnHtml];
+        } else {
+          const cleanText = el.innerText.trim();
+          if (i18nDict.en[cleanText]) {
+            el.innerText = i18nDict.en[cleanText];
+          }
+        }
+      } else {
+        el.innerHTML = bnHtml;
+      }
+    });
+
+    updateLangBtnUI();
   }
 
   // Render Content onto DOM
@@ -597,6 +735,8 @@
         };
       });
     }
+
+    applyLanguage();
   }
 
   // Find target gallery item by ID across active gallery or all galleries
