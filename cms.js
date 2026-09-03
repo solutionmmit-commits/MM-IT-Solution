@@ -4,7 +4,7 @@
  */
 
 (function () {
-  'use me strict';
+  'use strict';
 
   // Global State
   let siteData = {
@@ -16,7 +16,7 @@
       heroTitle: "আপনার সকল <span>অনলাইন ও অফলাইন</span> তথ্যপ্রযুক্তি সেবার ঠিকানা",
       heroLead: "ফটোকপি, প্রিন্টিং, কম্পোজিং থেকে শুরু করে ওয়েবসাইট, ডিজিটাল মার্কেটিং ও আইটি সাপোর্ট — এক ছাদের নিচে দ্রুত ও নির্ভরযোগ্য সেবা।",
       address: "পঞ্চগড় সদর (চৌরঙ্গী মোড় সংলগ্ন), পঞ্চগড়",
-      phone: "+৮৮০ ১৭০০-০০০০০০",
+      phone: "+880 1737 520 200",
       email: "info@mmitsolution.com",
       hours: "সকাল ৯টা – রাত ৯টা (সবসময় খোলা)",
       facebook: "fb.com/mmitsolution21",
@@ -59,71 +59,167 @@
 
   let currentLang = localStorage.getItem('mm_lang') || 'bn';
 
-  // Comprehensive i18n Translation Dictionary (Bangla <-> English)
-  const i18nDict = {
+  // Full Translation Dictionary keyed by i18n keys
+  const translations = {
+    bn: {
+      // nav
+      "nav.home": "হোম",
+      "nav.offline": "অফলাইন সেবা",
+      "nav.online": "অনলাইন সেবা",
+      "nav.gallery": "গ্যালারি",
+      "nav.reviews": "রিভিউ",
+      "nav.contact": "যোগাযোগ",
+      // hero
+      "hero.kicker": "পঞ্চগড় সদর, পঞ্চগড়",
+      "hero.title": "আপনার সকল <span>অনলাইন ও অফলাইন</span> তথ্যপ্রযুক্তি সেবার ঠিকানা",
+      "hero.lead": "ফটোকপি, প্রিন্টিং, কম্পোজিং থেকে শুরু করে ওয়েবসাইট, ডিজিটাল মার্কেটিং ও আইটি সাপোর্ট — এক ছাদের নিচে দ্রুত ও নির্ভরযোগ্য সেবা।",
+      "hero.btn.services": "সেবাসমূহ দেখুন",
+      "hero.btn.contact": "যোগাযোগ করুন",
+      // shop card
+      "shop.label.address": "ঠিকানা",
+      "shop.label.phone": "ফোন",
+      "shop.label.hours": "সময়",
+      "shop.label.facebook": "ফেসবুক",
+      "shop.card.title": "দোকানের তথ্য",
+      // services section
+      "services.kicker": "সেবাসমূহ",
+      "services.title": "আপনার প্রয়োজন অনুযায়ী বেছে নিন",
+      "services.offline.tag": "দোকানে এসে",
+      "services.offline.title": "অফলাইন সেবা",
+      "services.offline.desc": "সরাসরি দোকানে এসে করানোর মতো কাজ — ছবি তোলা, ফটোকপি, প্রিন্ট ও ফরম পূরণ।",
+      "services.offline.li1": "ফটো স্টুডিও",
+      "services.offline.li2": "ফটোকপি ও প্রিন্টিং",
+      "services.offline.li3": "কম্পোজিং",
+      "services.offline.li4": "অনলাইন আবেদন সহায়তা (NID, জন্মনিবন্ধন, পাসপোর্ট)",
+      "services.offline.li5": "চাকরির আবেদন সহায়তা",
+      "services.offline.btn": "অফলাইন সেবা দেখুন →",
+      "services.online.tag": "দূর থেকে অর্ডার করুন",
+      "services.online.title": "অনলাইন সেবা",
+      "services.online.desc": "ঘরে বসেই যোগাযোগ করে নেওয়া যায় এমন ডিজিটাল সেবা — ব্যবসার জন্য প্রযুক্তি সমাধান।",
+      "services.online.li1": "ওয়েবসাইট ডিজাইন ও ডেভেলপমেন্ট",
+      "services.online.li2": "ডিজিটাল মার্কেটিং",
+      "services.online.li3": "গ্রাফিক ডিজাইন",
+      "services.online.li4": "ই-কমার্স সলিউশন",
+      "services.online.li5": "ডোমেইন, হোস্টিং ও আইটি সাপোর্ট",
+      "services.online.btn": "অনলাইন সেবা দেখুন →",
+      // why section
+      "why.kicker": "কেন আমাদের বেছে নেবেন",
+      "why.title": "আমাদের ভরসার কারণ",
+      "why.reliable.title": "নির্ভরযোগ্য সেবা",
+      "why.reliable.desc": "স্থানীয়ভাবে পরিচিত ও বিশ্বস্ত প্রতিষ্ঠান",
+      "why.fast.title": "দ্রুত কাজ",
+      "why.fast.desc": "অপেক্ষা ছাড়াই দ্রুততম সময়ে সেবা",
+      "why.affordable.title": "সাশ্রয়ী মূল্য",
+      "why.affordable.desc": "সকলের জন্য সহজলভ্য মূল্যে সেবা",
+      "why.caring.title": "আন্তরিক সহায়তা",
+      "why.caring.desc": "প্রতিটি গ্রাহককে ব্যক্তিগত মনোযোগ",
+      // gallery section
+      "gallery.kicker": "গ্যালারি",
+      "gallery.title": "আমাদের কাজের নমুনা",
+      "gallery.note": "টিপস: এডিট মোড অন করে যেকোনো বক্সে ক্লিক করে সরাসরি আপনার দোকানের ছবি বা কাজের ছবি আপলোড করুন।",
+      // reviews section
+      "reviews.kicker": "গ্রাহকদের মতামত",
+      "reviews.title": "তারা কী বলেন",
+      // footer
+      "footer.title": "যোগাযোগ করুন",
+      "footer.label.address": "ঠিকানা",
+      "footer.label.phone": "ফোন",
+      "footer.label.email": "ইমেইল",
+      "footer.label.hours": "সময়",
+      "footer.fb.btn": "ফেসবুক পেজ দেখুন →",
+      "footer.copyright": "সকল প্রকার আইটি সেবার নির্ভরযোগ্য ঠিকানা",
+      // offline page
+      "offline.kicker": "দোকানে এসে করানোর সেবা",
+      "offline.title": "অফলাইন সেবা",
+      "offline.lead": "সরাসরি দোকানে এসে করানোর মতো কাজগুলো — ছবি তোলা, ফটোকপি, প্রিন্ট থেকে শুরু করে বিভিন্ন সরকারি ফরম পূরণ পর্যন্ত, সবকিছু এক জায়গায়।",
+      "offline.cta.title": "কাজ করাতে চান?",
+      "offline.cta.lead": "দোকানে সরাসরি এসে অথবা কল করে সময় ঠিক করে নিন।",
+      // online page
+      "online.kicker": "দূর থেকে অর্ডার করা যায়",
+      "online.title": "অনলাইন সেবা",
+      "online.lead": "ব্যবসা বা ব্যক্তিগত কাজের জন্য ডিজিটাল সমাধান — ঘরে বসেই ফোন বা ফেসবুকে যোগাযোগ করে অর্ডার করা যায়।",
+      "online.cta.title": "প্রজেক্ট শুরু করতে চান?",
+      "online.cta.lead": "আজই যোগাযোগ করুন — আমরা আপনার ব্যবসার ডিজিটাল সমাধান তৈরি করে দেব।"
+    },
     en: {
-      "হোম": "Home",
-      "অফলাইন সেবা": "Offline Services",
-      "অনলাইন সেবা": "Online Services",
-      "গ্যালারি": "Gallery",
-      "রিভিউ": "Reviews",
-      "যোগাযোগ": "Contact",
-      "পঞ্চগড় সদর, পঞ্চগড়": "Panchagarh Sadar, Panchagarh",
-      "আপনার সকল <span>অনলাইন ও অফলাইন</span> তথ্যপ্রযুক্তি সেবার ঠিকানা": "Your One-Stop Destination for <span>Online &amp; Offline</span> IT Services",
-      "আপনার সকল অনলাইন ও অফলাইন তথ্যপ্রযুক্তি সেবার ঠিকানা": "Your One-Stop Destination for Online &amp; Offline IT Services",
-      "ফটোকপি, প্রিন্টিং, কম্পোজিং থেকে শুরু করে ওয়েবসাইট, ডিজিটাল মার্কেটিং ও আইটি সাপোর্ট — এক ছাদের নিচে দ্রুত ও নির্ভরযোগ্য সেবা।": "Photocopying, printing, composing to websites, digital marketing &amp; IT support — fast and reliable services under one roof.",
-      "আমাদের সেবাসমূহ": "Our Services",
-      "আমরা যেসকল কাজ করি": "Services We Provide",
-      "কেন বেছে নেবেন MM IT Solution?": "Why Choose MM IT Solution?",
-      "দক্ষ টেকনিশিয়ান": "Skilled Technicians",
-      "অভিজ্ঞ ও দক্ষ কর্মী দ্বারা কাজ সম্পাদন": "Work handled by experienced &amp; skilled professionals",
-      "দ্রুত কাজ": "Fast Service",
-      "অপেক্ষা ছাড়াই দ্রুততম সময়ে সেবা": "Quick turnaround without long waiting times",
-      "সাশ্রয়ী মূল্য": "Affordable Price",
-      "সকলের জন্য সহজলভ্য মূল্যে সেবা": "Budget-friendly prices accessible for everyone",
-      "আন্তরিক সহায়তা": "Friendly Support",
-      "প্রতিটি গ্রাহককে ব্যক্তিগত মনোযোগ": "Personalized attention &amp; care for every customer",
-      "আমাদের কাজের নমুনা": "Our Work Portfolio",
-      "তারা কী বলেন": "Client Reviews",
-      "যোগাযোগ করুন": "Contact Us",
-      "ঠিকানা": "Address",
-      "ফোন": "Phone",
-      "ইমেইল": "Email",
-      "সময়": "Hours",
-      "প্রতিদিন সকাল ৯টা – রাত ৯টা": "Everyday 9:00 AM – 9:00 PM",
-      "প্রতিদিন সকাল ৯টা – রাত ৯টা (সবসময় খোলা)": "Everyday 9:00 AM – 9:00 PM (Always Open)",
-      "পঞ্চগড় সদর (চৌরঙ্গী মোড় সংলগ্ন), পঞ্চগড়": "Panchagarh Sadar (Near Chowrangi More), Panchagarh",
-      "ফেসবুক পেজ দেখুন →": "Visit Facebook Page →",
-      "সকল প্রকার আইটি সেবার নির্ভরযোগ্য ঠিকানা": "Your trusted destination for all IT solutions",
-      "আমাদের অফলাইন সেবাসমূহ": "Our Offline Computer Services",
-      "দৈনন্দিন কাজের জন্য নির্ভরযোগ্য কম্পিউটার, প্রিন্টিং ও ডকুমেন্ট সেবা": "Reliable printing, photocopying, composing &amp; photo studio services for daily needs",
-      "আমাদের অনলাইন ও ডিজিটাল সেবাসমূহ": "Our Online &amp; Digital Services",
-      "আপনার ব্যবসাকে ডিজিটাল করার সকল মাধ্যম — ওয়েবসাইট, ব্র্যান্ডিং ও অনলাইন আবেদন": "Empower your business digitally — websites, branding, software &amp; online applications",
-      "এক নজরে আমাদের সকল ডিজিটাল সেবার প্যাকেজ": "Digital Service Packages",
-      "প্যাকেজ সমূহ": "Service Packages",
-      "যেভাবে অনলাইন সেবা গ্রহণ করবেন": "How to Order Online Services",
-      "অনলাইন আবেদন সেবাসমূহ": "Online Application Services",
-      "ওয়েবসাইট ও সফটওয়্যার ডেভেলপমেন্ট": "Website &amp; Software Development",
-      "ডিজিটাল মার্কেটিং ও ফেসবুক অ্যাডস": "Digital Marketing &amp; Facebook Ads",
-      "গ্রাফিক ডিজাইন ও ব্রান্ডিং": "Graphic Design &amp; Branding",
-      "ফটোকপি ও কালার প্রিন্টিং": "Photocopy &amp; Color Printing",
-      "স্টুдио ছবি ও পাসপোর্ট সাইজ ফটো": "Studio Photo &amp; Passport Size Photo",
-      "কম্পিউটার টাইপিং ও সিভি তৈরি": "Computer Typing &amp; Resume Making",
-      "লেমিনেটিং ও বাইন্ডিং সেবা": "Laminating &amp; Binding Services",
-      "অর্ডার করুন": "Order Now",
-      "আজই যোগাযোগ করুন": "Contact Us Today",
-      "বিস্তারিত জানুন": "Learn More",
-      "কল করুন": "Call Now",
-      "মেসেজ দিন": "Send Message",
-      "টিপস: এডিট মোড অন করে যেকোনো বক্সে ক্লিক করে সরাসরি আপনার দোকানের ছবি বা কাজের ছবি আপলোড করুন।": "Tip: Turn on Edit Mode to directly upload photos of your shop or work samples.",
-      "দোকানের ছবি বসান": "Upload Shop Photo",
-      "স্টুдиоর ছবি বসান": "Upload Studio Photo",
-      "কাজের নমুনা বসান": "Upload Work Sample",
-      "গ্রাহকের ছবি বসান": "Upload Customer Photo",
-      "দোকানের সামনের দৃশ্য": "Front View of Shop",
-      "ফটোকপি ও কম্পিউটার ল্যাব": "Photocopy &amp; Computer Lab",
-      "গ্রাফিক ও সাইট ডিজাইন কাজ": "Graphic &amp; Web Design Work",
-      "সন্তুষ্ট গ্রাহকদের সেবাদান": "Satisfied Customers"
+      // nav
+      "nav.home": "Home",
+      "nav.offline": "Offline Services",
+      "nav.online": "Online Services",
+      "nav.gallery": "Gallery",
+      "nav.reviews": "Reviews",
+      "nav.contact": "Contact",
+      // hero
+      "hero.kicker": "Panchagarh Sadar, Panchagarh",
+      "hero.title": "Your One-Stop Destination for <span>Online & Offline</span> IT Services",
+      "hero.lead": "Photocopying, printing, composing to websites, digital marketing & IT support — fast and reliable services under one roof.",
+      "hero.btn.services": "View Services",
+      "hero.btn.contact": "Contact Us",
+      // shop card
+      "shop.label.address": "Address",
+      "shop.label.phone": "Phone",
+      "shop.label.hours": "Hours",
+      "shop.label.facebook": "Facebook",
+      "shop.card.title": "Shop Info",
+      // services section
+      "services.kicker": "Services",
+      "services.title": "Choose What You Need",
+      "services.offline.tag": "Walk-in Services",
+      "services.offline.title": "Offline Services",
+      "services.offline.desc": "Walk-in services — studio photos, photocopying, printing & form filling.",
+      "services.offline.li1": "Photo Studio",
+      "services.offline.li2": "Photocopy & Printing",
+      "services.offline.li3": "Composing",
+      "services.offline.li4": "Online Application Help (NID, Birth Certificate, Passport)",
+      "services.offline.li5": "Job Application Assistance",
+      "services.offline.btn": "View Offline Services →",
+      "services.online.tag": "Order Remotely",
+      "services.online.title": "Online Services",
+      "services.online.desc": "Digital services you can order from home by phone or Facebook — tech solutions for your business.",
+      "services.online.li1": "Website Design & Development",
+      "services.online.li2": "Digital Marketing",
+      "services.online.li3": "Graphic Design",
+      "services.online.li4": "E-Commerce Solutions",
+      "services.online.li5": "Domain, Hosting & IT Support",
+      "services.online.btn": "View Online Services →",
+      // why section
+      "why.kicker": "Why Choose Us",
+      "why.title": "Reasons to Trust Us",
+      "why.reliable.title": "Reliable Service",
+      "why.reliable.desc": "Locally recognized & trusted institution",
+      "why.fast.title": "Fast Delivery",
+      "why.fast.desc": "Quick turnaround without long waiting times",
+      "why.affordable.title": "Affordable Price",
+      "why.affordable.desc": "Budget-friendly prices accessible for everyone",
+      "why.caring.title": "Friendly Support",
+      "why.caring.desc": "Personalized attention & care for every customer",
+      // gallery section
+      "gallery.kicker": "Gallery",
+      "gallery.title": "Our Work Portfolio",
+      "gallery.note": "Tip: Turn on Edit Mode to click any box and directly upload photos of your shop or work samples.",
+      // reviews section
+      "reviews.kicker": "Customer Reviews",
+      "reviews.title": "What They Say",
+      // footer
+      "footer.title": "Contact Us",
+      "footer.label.address": "Address",
+      "footer.label.phone": "Phone",
+      "footer.label.email": "Email",
+      "footer.label.hours": "Hours",
+      "footer.fb.btn": "Visit Facebook Page →",
+      "footer.copyright": "Your trusted destination for all IT solutions",
+      // offline page
+      "offline.kicker": "Walk-in Services",
+      "offline.title": "Offline Services",
+      "offline.lead": "Walk-in services — studio photos, photocopying, printing and government form filling, all in one place.",
+      "offline.cta.title": "Want to Get Work Done?",
+      "offline.cta.lead": "Visit us directly or call to schedule an appointment.",
+      // online page
+      "online.kicker": "Order From Anywhere",
+      "online.title": "Online Services",
+      "online.lead": "Digital solutions for business or personal needs — contact us by phone or Facebook and place your order from anywhere.",
+      "online.cta.title": "Ready to Start a Project?",
+      "online.cta.lead": "Contact us today — we will build the digital solution your business needs."
     }
   };
 
@@ -524,36 +620,29 @@
     }
   }
 
-  // Apply Language Translations Across the Page
+  // Apply Language Translations Across the Page using data-i18n attributes
   function applyLanguage() {
-    const isEn = (currentLang === 'en');
     document.documentElement.lang = currentLang;
+    const dict = translations[currentLang] || translations['bn'];
 
-    const selectors = 'nav.links a, .hero h1, .hero p.lead, .kicker, section h2, section h3, .why-card h3, .why-card p, .svc-card h3, .svc-card p, .pkg-card h3, .pkg-sub, .pkg-price, .pkg-list li, .step-card h3, .step-card p, .foot-info div b, .foot-info div span, .fb-btn, .copyright span, .btn-primary, .btn-secondary, .call-btn, .gallery-note, .gallery-caption';
-
-    document.querySelectorAll(selectors).forEach(el => {
-      if (el.closest('#cms-admin-bar') || el.closest('.cms-modal') || el.closest('#cms-toast-container') || el.id === 'cms-lang-btn') return;
-
-      // Store Bangla original text
-      if (!el.hasAttribute('data-bn-html')) {
-        el.setAttribute('data-bn-html', el.innerHTML.trim());
-      }
-
-      const bnHtml = el.getAttribute('data-bn-html');
-      
-      if (isEn) {
-        if (i18nDict.en[bnHtml]) {
-          el.innerHTML = i18nDict.en[bnHtml];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const val = dict[key];
+      if (val !== undefined) {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = val;
         } else {
-          const cleanText = el.innerText.trim();
-          if (i18nDict.en[cleanText]) {
-            el.innerText = i18nDict.en[cleanText];
-          }
+          el.innerHTML = val;
         }
-      } else {
-        el.innerHTML = bnHtml;
       }
     });
+
+    // Also update document title for page context
+    if (document.title.includes('অফলাইন')) {
+      document.title = currentLang === 'en' ? 'Offline Services — MM IT Solution' : 'অফলাইন সেবা — MM IT Solution';
+    } else if (document.title.includes('অনলাইন')) {
+      document.title = currentLang === 'en' ? 'Online Services — MM IT Solution' : 'অনলাইন সেবা — MM IT Solution';
+    }
 
     updateLangBtnUI();
   }

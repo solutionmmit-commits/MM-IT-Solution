@@ -1,213 +1,292 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MM IT Solution — পঞ্চগড় (Elementor-Style CMS)</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
-  .split-teaser{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
-  .teaser-card{
-    border:2px solid var(--ink); background:var(--paper-dark); padding:32px;
-    box-shadow:5px 5px 0 rgba(30,58,70,0.10); display:flex; flex-direction:column; gap:14px;
-  }
-  .teaser-card .tag{font-family:'Baloo Da 2'; font-weight:700; font-size:13px; color:var(--paper); background:var(--teal); padding:4px 12px; border-radius:20px; width:fit-content;}
-  .teaser-card.online .tag{background:var(--stamp);}
-  .teaser-card h3{font-size:22px;}
-  .teaser-card p{font-size:14.5px; color:var(--ink-soft); margin:0;}
-  .teaser-card ul{margin:0; padding:0; list-style:none; font-size:14px; color:var(--ink-soft);}
-  .teaser-card ul li{padding:5px 0; border-bottom:1px dashed var(--line);}
-  .teaser-card ul li:last-child{border-bottom:none;}
-  .teaser-card a.btn-secondary{align-self:flex-start; margin-top:6px;}
-  @media(max-width:860px){.split-teaser{grid-template-columns:1fr;}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MM IT Solution — পঞ্চগড় (Elementor-Style CMS)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .split-teaser {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .teaser-card {
+      border: 2px solid var(--ink);
+      background: var(--paper-dark);
+      padding: 32px;
+      box-shadow: 5px 5px 0 rgba(30, 58, 70, 0.10);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .teaser-card .tag {
+      font-family: 'Baloo Da 2';
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--paper);
+      background: var(--teal);
+      padding: 4px 12px;
+      border-radius: 20px;
+      width: fit-content;
+    }
+
+    .teaser-card.online .tag {
+      background: var(--stamp);
+    }
+
+    .teaser-card h3 {
+      font-size: 22px;
+    }
+
+    .teaser-card p {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+
+    .teaser-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 14px;
+      color: var(--ink-soft);
+    }
+
+    .teaser-card ul li {
+      padding: 5px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .teaser-card ul li:last-child {
+      border-bottom: none;
+    }
+
+    .teaser-card a.btn-secondary {
+      align-self: flex-start;
+      margin-top: 6px;
+    }
+
+    @media(max-width:860px) {
+      .split-teaser {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <div class="nav">
-    <div class="brand">
-      <div class="logo-wrapper" id="cms-logo-box">
-        <span class="dot" data-cms-key="shop.logoText">MM</span>
-      </div>
-      <span data-cms-key="shop.name">MM IT Solution</span>
-    </div>
-    <nav class="links">
-      <a href="index.html" class="active">হোম</a>
-      <a href="offline-services.html">অফলাইন সেবা</a>
-      <a href="online-services.html">অনলাইন সেবা</a>
-      <a href="index.html#gallery">গ্যালারি</a>
-      <a href="index.html#reviews">রিভিউ</a>
-      <a href="index.html#contact">যোগাযোগ</a>
-    </nav>
-    <a class="call-btn" href="tel:+8801700000000" data-cms-key="shop.phone">☎ +৮৮০ ১৭০০-০০০০০০</a>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="kicker" data-cms-key="shop.kicker">পঞ্চগড় সদর, পঞ্চগড়</span>
-      <h1 data-cms-key="shop.heroTitle">আপনার সকল <span>অনলাইন ও অফলাইন</span> তথ্যপ্রযুক্তি সেবার ঠিকানা</h1>
-      <p class="lead" data-cms-key="shop.heroLead">ফটোকপি, প্রিন্টিং, কম্পোজিং থেকে শুরু করে ওয়েবসাইট, ডিজিটাল মার্কেটিং ও আইটি সাপোর্ট — এক ছাদের নিচে দ্রুত ও নির্ভরযোগ্য সেবা।</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="#services">সেবাসমূহ দেখুন</a>
-        <a class="btn-secondary" href="index.html#contact">যোগাযোগ করুন</a>
-      </div>
-    </div>
-    <div class="stamp-card">
-      <h3>দোকানের তথ্য</h3>
-      <div class="info-line"><b>ঠিকানা</b> <span data-cms-key="shop.address">পঞ্চগড় সদর (চৌরঙ্গী মোড় সংলগ্ন), পঞ্চগড়</span></div>
-      <div class="info-line"><b>ফোন</b> <span data-cms-key="shop.phone">+৮৮০ ১৭০০-০০০০০০</span></div>
-      <div class="info-line"><b>সময়</b> <span data-cms-key="shop.hours">সকাল ৯টা – রাত ৯টা (সবসময় খোলা)</span></div>
-      <div class="info-line"><b>ফেসবুক</b> <span data-cms-key="shop.facebook">fb.com/mmitsolution21</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">সেবাসমূহ</span>
-      <h2>আপনার প্রয়োজন অনুযায়ী বেছে নিন</h2>
-    </div>
-    <div class="split-teaser">
-      <div class="teaser-card offline">
-        <span class="tag">দোকানে এসে</span>
-        <h3>অফলাইন সেবা</h3>
-        <p>সরাসরি দোকানে এসে করানোর মতো কাজ — ছবি তোলা, ফটোকপি, প্রিন্ট ও ফরম পূরণ।</p>
-        <ul>
-          <li>ফটো স্টুডিও</li>
-          <li>ফটোকপি ও প্রিন্টিং</li>
-          <li>কম্পোজিং</li>
-          <li>অনলাইন আবেদন সহায়তা (NID, জন্মনিবন্ধন, পাসপোর্ট)</li>
-          <li>চাকরির আবেদন সহায়তা</li>
-        </ul>
-        <a class="btn-secondary" href="offline-services.html">অফলাইন সেবা দেখুন →</a>
-      </div>
-      <div class="teaser-card online">
-        <span class="tag">দূর থেকে অর্ডার করুন</span>
-        <h3>অনলাইন সেবা</h3>
-        <p>ঘরে বসেই যোগাযোগ করে নেওয়া যায় এমন ডিজিটাল সেবা — ব্যবসার জন্য প্রযুক্তি সমাধান।</p>
-        <ul>
-          <li>ওয়েবসাইট ডিজাইন ও ডেভেলপমেন্ট</li>
-          <li>ডিজিটাল মার্কেটিং</li>
-          <li>গ্রাফিক ডিজাইন</li>
-          <li>ই-কমার্স সলিউশন</li>
-          <li>ডোমেইন, হোস্টিং ও আইটি সাপোর্ট</li>
-        </ul>
-        <a class="btn-secondary" href="online-services.html">অনলাইন সেবা দেখুন →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="why">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">কেন আমাদের বেছে নেবেন</span>
-      <h2>আমাদের ভরসার কারণ</h2>
-    </div>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4Z" stroke="#FBF6EA" stroke-width="2" stroke-linejoin="round"/></svg>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo-wrapper" id="cms-logo-box">
+          <span class="dot" data-cms-key="shop.logoText">MM</span>
         </div>
-        <h3>নির্ভরযোগ্য সেবা</h3>
-        <p>স্থানীয়ভাবে পরিচিত ও বিশ্বস্ত প্রতিষ্ঠান</p>
+        <span data-cms-key="shop.name">MM IT Solution</span>
       </div>
-      <div class="why-card">
-        <div class="why-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 7v6l4 2" stroke="#FBF6EA" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#FBF6EA" stroke-width="2"/></svg>
+      <nav class="links">
+        <a href="index.html" class="active" data-i18n="nav.home">হোম</a>
+        <a href="offline-services.html" data-i18n="nav.offline">অফলাইন সেবা</a>
+        <a href="online-services.html" data-i18n="nav.online">অনলাইন সেবা</a>
+        <a href="index.html#gallery" data-i18n="nav.gallery">গ্যালারি</a>
+        <a href="index.html#reviews" data-i18n="nav.reviews">রিভিউ</a>
+        <a href="index.html#contact" data-i18n="nav.contact">যোগাযোগ</a>
+      </nav>
+      <a class="call-btn" href="tel:+8801737520200" data-cms-key="shop.phone">☎ +৮৮০ ১৭৩৭-৫২০২০০</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker" data-cms-key="shop.kicker" data-i18n="hero.kicker"></span>
+        <h1 data-cms-key="shop.heroTitle" data-i18n="hero.title">আপনার সকল <span>অনলাইন ও অফলাইন</span> তথ্যপ্রযুক্তি
+          সেবার ঠিকানা</h1>
+        <p class="lead" data-cms-key="shop.heroLead" data-i18n="hero.lead">ফটোকপি, প্রিন্টিং, কম্পোজিং থেকে শুরু করে
+          ওয়েবসাইট, ডিজিটাল মার্কেটিং ও আইটি সাপোর্ট — এক ছাদের নিচে দ্রুত ও নির্ভরযোগ্য সেবা।</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#services" data-i18n="hero.btn.services">সেবাসমূহ দেখুন</a>
+          <a class="btn-secondary" href="index.html#contact" data-i18n="hero.btn.contact">যোগাযোগ করুন</a>
         </div>
-        <h3>দ্রুত কাজ</h3>
-        <p>অপেক্ষা ছাড়াই দ্রুততম সময়ে সেবা</p>
       </div>
-      <div class="why-card">
-        <div class="why-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M4 12l4-4M4 12l4 4" stroke="#FBF6EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="stamp-card">
+        <h3 data-i18n="shop.card.title">দোকানের তথ্য</h3>
+        <div class="info-line"><b data-i18n="shop.label.address">ঠিকানা</b> <span data-cms-key="shop.address">ফুটকিবাড়ী
+            বাজার, মাড়েয়া, বোদা, পঞ্চগড়</span></div>
+        <div class="info-line"><b data-i18n="shop.label.phone">ফোন</b> <span data-cms-key="shop.phone">+৮৮০ ১৭৩৭ ৫২০
+            ২০০</span></div>
+        <div class="info-line"><b data-i18n="shop.label.hours">সময়</b> <span data-cms-key="shop.hours">সকাল ১০টা – রাত
+            ১০টা (সবসময় খোলা)</span></div>
+        <div class="info-line"><b data-i18n="shop.label.facebook">ফেসবুক</b> <span
+            data-cms-key="shop.facebook">fb.com/mmitsolution21</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker" data-i18n="services.kicker">সেবাসমূহ</span>
+        <h2 data-i18n="services.title">আপনার প্রয়োজন অনুযায়ী বেছে নিন</h2>
+      </div>
+      <div class="split-teaser">
+        <div class="teaser-card offline">
+          <span class="tag" data-i18n="services.offline.tag">দোকানে এসে</span>
+          <h3 data-i18n="services.offline.title">অফলাইন সেবা</h3>
+          <p data-i18n="services.offline.desc">সরাসরি দোকানে এসে করানোর মতো কাজ — ছবি তোলা, ফটোকপি, প্রিন্ট ও ফরম পূরণ।
+          </p>
+          <ul>
+            <li data-i18n="services.offline.li1">ফটো স্টুডিও</li>
+            <li data-i18n="services.offline.li2">ফটোকপি ও প্রিন্টিং</li>
+            <li data-i18n="services.offline.li3">কম্পোজিং</li>
+            <li data-i18n="services.offline.li4">অনলাইন আবেদন সহায়তা (NID, জন্মনিবন্ধন, পাসপোর্ট)</li>
+            <li data-i18n="services.offline.li5">চাকরির আবেদন সহায়তা</li>
+          </ul>
+          <a class="btn-secondary" href="offline-services.html" data-i18n="services.offline.btn">অফলাইন সেবা দেখুন →</a>
         </div>
-        <h3>সাশ্রয়ী মূল্য</h3>
-        <p>সকলের জন্য সহজলভ্য মূল্যে সেবা</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.5-7 10-7 10Z" stroke="#FBF6EA" stroke-width="2" stroke-linejoin="round"/></svg>
+        <div class="teaser-card online">
+          <span class="tag" data-i18n="services.online.tag">দূর থেকে অর্ডার করুন</span>
+          <h3 data-i18n="services.online.title">অনলাইন সেবা</h3>
+          <p data-i18n="services.online.desc">ঘরে বসেই যোগাযোগ করে নেওয়া যায় এমন ডিজিটাল সেবা — ব্যবসার জন্য প্রযুক্তি
+            সমাধান।</p>
+          <ul>
+            <li data-i18n="services.online.li1">ওয়েবসাইট ডিজাইন ও ডেভেলপমেন্ট</li>
+            <li data-i18n="services.online.li2">ডিজিটাল মার্কেটিং</li>
+            <li data-i18n="services.online.li3">গ্রাফিক ডিজাইন</li>
+            <li data-i18n="services.online.li4">ই-কমার্স সলিউশন</li>
+            <li data-i18n="services.online.li5">ডোমেইন, হোস্টিং ও আইটি সাপোর্ট</li>
+          </ul>
+          <a class="btn-secondary" href="online-services.html" data-i18n="services.online.btn">অনলাইন সেবা দেখুন →</a>
         </div>
-        <h3>আন্তরিক সহায়তা</h3>
-        <p>প্রতিটি গ্রাহককে ব্যক্তিগত মনোযোগ</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="gallery">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">গ্যালারি</span>
-      <h2>আমাদের কাজের নমুনা</h2>
-    </div>
-    <!-- Dynamically managed by Elementor CMS -->
-    <div class="gallery-grid" id="cms-gallery-container">
-      <div class="gallery-item"><span class="plus">+</span>দোকানের ছবি বসান</div>
-      <div class="gallery-item"><span class="plus">+</span>স্টুдиоর ছবি বসান</div>
-      <div class="gallery-item"><span class="plus">+</span>কাজের নমুনা বসান</div>
-      <div class="gallery-item"><span class="plus">+</span>গ্রাহকের ছবি বসান</div>
-    </div>
-    <p class="gallery-note">টিপস: এডিট মোড অন করে যেকোনো বক্সে ক্লিক করে সরাসরি আপনার দোকানের ছবি বা কাজের ছবি আপলোড করুন।</p>
-  </div>
-</section>
-
-<section id="reviews">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">গ্রাহকদের মতামত</span>
-      <h2>তারা কী বলেন</h2>
-    </div>
-    <!-- Dynamically managed by Elementor CMS -->
-    <div class="test-grid" id="cms-reviews-container">
-      <div class="test-card">
-        <div class="stars">★★★★★</div>
-        <p>"খুব দ্রুত ও সুন্দরভাবে আমার জন্মনিবন্ধন সংশোধনের কাজ করে দিয়েছে। ধন্যবাদ MM IT Solution।"</p>
-        <div class="test-name">— মোঃ রফিকুল ইসলাম</div>
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker" data-i18n="why.kicker">কেন আমাদের বেছে নেবেন</span>
+        <h2 data-i18n="why.title">আমাদের ভরসার কারণ</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4Z" stroke="#FBF6EA" stroke-width="2"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3 data-i18n="why.reliable.title">নির্ভরযোগ্য সেবা</h3>
+          <p data-i18n="why.reliable.desc">স্থানীয়ভাবে পরিচিত ও বিশ্বস্ত প্রতিষ্ঠান</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 7v6l4 2" stroke="#FBF6EA" stroke-width="2" stroke-linecap="round" />
+              <circle cx="12" cy="12" r="9" stroke="#FBF6EA" stroke-width="2" />
+            </svg>
+          </div>
+          <h3 data-i18n="why.fast.title">দ্রুত কাজ</h3>
+          <p data-i18n="why.fast.desc">অপেক্ষা ছাড়াই দ্রুততম সময়ে সেবা</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M4 12h16M4 12l4-4M4 12l4 4" stroke="#FBF6EA" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3 data-i18n="why.affordable.title">সাশ্রয়ী মূল্য</h3>
+          <p data-i18n="why.affordable.desc">সকলের জন্য সহজলভ্য মূল্যে সেবা</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s-7-4.5-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.5-7 10-7 10Z" stroke="#FBF6EA"
+                stroke-width="2" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3 data-i18n="why.caring.title">আন্তরিক সহায়তা</h3>
+          <p data-i18n="why.caring.desc">প্রতিটি গ্রাহককে ব্যক্তিগত মনোযোগ</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer id="contact">
-  <div class="wrap">
-    <h2>যোগাযোগ করুন</h2>
-    <div class="foot-grid">
-      <div class="foot-info">
-        <div><b>ঠিকানা</b> <span data-cms-key="shop.address">পঞ্চগড় সদর (চৌরঙ্গী মোড় সংলগ্ন), পঞ্চগড়</span></div>
-        <div><b>ফোন</b> <span data-cms-key="shop.phone">+৮৮০ ১৭০০-০০০০০০</span></div>
-        <div><b>ইমেইল</b> <span data-cms-key="shop.email">info@mmitsolution.com</span></div>
-        <div><b>সময়</b> <span data-cms-key="shop.hours">প্রতিদিন সকাল ৯টা – রাত ৯টা</span></div>
-        <a class="fb-btn" href="https://www.facebook.com/mmitsolution21" target="_blank">ফেসবুক পেজ দেখুন →</a>
+  <section id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker" data-i18n="gallery.kicker">গ্যালারি</span>
+        <h2 data-i18n="gallery.title">আমাদের কাজের নমুনা</h2>
       </div>
-      <div class="map-box">
-        <iframe 
-          src="https://maps.google.com/maps?q=MM+IT+Solution+%26+Varieties+Store,+Panchagarh&t=&z=17&ie=UTF8&iwloc=B&output=embed" 
-          width="100%" 
-          height="100%" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+      <!-- Dynamically managed by Elementor CMS -->
+      <div class="gallery-grid" id="cms-gallery-container">
+        <div class="gallery-item"><span class="plus">+</span>দোকানের ছবি বসান</div>
+        <div class="gallery-item"><span class="plus">+</span>স্টুдиоর ছবি বসান</div>
+        <div class="gallery-item"><span class="plus">+</span>কাজের নমুনা বসান</div>
+        <div class="gallery-item"><span class="plus">+</span>গ্রাহকের ছবি বসান</div>
+      </div>
+      <p class="gallery-note" data-i18n="gallery.note">টিপস: এডিট মোড অন করে যেকোনো বক্সে ক্লিক করে সরাসরি আপনার দোকানের
+        ছবি বা কাজের ছবি আপলোড করুন।</p>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker" data-i18n="reviews.kicker">গ্রাহকদের মতামত</span>
+        <h2 data-i18n="reviews.title">তারা কী বলেন</h2>
+      </div>
+      <!-- Dynamically managed by Elementor CMS -->
+      <div class="test-grid" id="cms-reviews-container">
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p>"খুব দ্রুত ও সুন্দরভাবে আমার আমার চাকরীর আবেদন করে দিয়েছে। ধন্যবাদ MM IT Solution।"</p>
+          <div class="test-name">— মোঃ রফিকুল ইসলাম</div>
+        </div>
+      </div </div>
+  </section>
+
+  <footer id="contact">
+    <div class="wrap">
+      <h2 data-i18n="footer.title">যোগাযোগ করুন</h2>
+      <div class="foot-grid">
+        <div class="foot-info">
+          <div><b data-i18n="footer.label.address">ঠিকানা</b> <span data-cms-key="shop.address">পঞ্চগড় সদর (চৌরঙ্গী
+              মোড় সংলগ্ন), পঞ্চগড়</span></div>
+          <div><b data-i18n="footer.label.phone">ফোন</b> <span data-cms-key="shop.phone">+৮৮০ ১৭৩৭-৫২০২০০</span></div>
+          <div><b data-i18n="footer.label.email">ইমেইল</b> <span
+              data-cms-key="shop.email">[solutionmmit@gmail.com]</span></div>
+          <div><b data-i18n="footer.label.hours">সময়</b> <span data-cms-key="shop.hours">প্রতিদিন সকাল ১০টা – রাত
+              ১০টা</span></div>
+          <a class="fb-btn" href="https://www.facebook.com/mmitsolution21" target="_blank"
+            data-i18n="footer.fb.btn">ফেসবুক পেজ দেখুন →</a>
+        </div>
+        <div class="map-box">
+          <iframe
+            src="https://maps.google.com/maps?q=MM+IT+Solution+%26+Varieties+Store,+Panchagarh&t=&z=17&ie=UTF8&iwloc=B&output=embed"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      <div class="copyright">
+        <span>© <span data-cms-key="shop.name">MM IT Solution</span>, পঞ্চগড়</span>
+        <span data-i18n="footer.copyright">সকল প্রকার আইটি সেবার নির্ভরযোগ্য ঠিকানা</span>
       </div>
     </div>
-    <div class="copyright">
-      <span>© <span data-cms-key="shop.name">MM IT Solution</span>, পঞ্চগড়</span>
-      <span>সকল প্রকার আইটি সেবার নির্ভরযোগ্য ঠিকানা</span>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Elementor Visual Editor & CMS Script -->
-<script src="cms.js"></script>
+  <!-- Elementor Visual Editor & CMS Script -->
+  <script src="cms.js"></script>
 </body>
+
 </html>

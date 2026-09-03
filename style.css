@@ -667,3 +667,11 @@ body.cms-edit-active [data-cms-key]:hover,
   border-left-color: #CE9A3E;
 }
 
+/* Hide hero kicker "পঞ্চগড় সদর, পঞ্চগড়" and gallery tip as requested */
+.hero .kicker {
+  display: none !important;
+}
+.gallery-note {
+  display: none !important;
+}
+
