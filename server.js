@@ -55,9 +55,9 @@ const upload = multer({
   }
 });
 
-// Admin credentials (Default: admin / admin123)
+// Admin credentials (Default: admin / 77520200Kmm)
 const ADMIN_USER = process.env.ADMIN_USER || 'admin';
-const ADMIN_PASS = process.env.ADMIN_PASS || 'admin123';
+const ADMIN_PASS = process.env.ADMIN_PASS || '77520200Kmm';
 
 // Default site content if json is empty
 const defaultData = {

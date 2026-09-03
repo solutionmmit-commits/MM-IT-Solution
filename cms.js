@@ -185,7 +185,7 @@
             </div>
             <div class="cms-form-group">
               <label>পাসওয়ার্ড (Password)</label>
-              <input type="password" id="cms-pass-input" value="admin123" placeholder="admin123">
+              <input type="password" id="cms-pass-input" value="" placeholder="আপনার পাসওয়ার্ড দিন">
             </div>
             <div id="cms-login-err" class="cms-err-msg"></div>
           </div>
@@ -353,7 +353,7 @@
         errBox.innerText = data.error || 'লগইন ব্যর্থ হয়েছে';
       }
     } catch (e) {
-      if (username === 'admin' && password === 'admin123') {
+      if (username === 'admin' && password === '77520200Kmm') {
         localStorage.setItem('mm_admin_token', 'local-token');
         isAdmin = true;
         isEditMode = true;
