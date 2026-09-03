@@ -66,12 +66,12 @@ body.cms-edit-active .logo-wrapper::after {
   display:flex;align-items:center;justify-content:center; font-size:16px; transform:rotate(-8deg);
   border:2px solid var(--ink);
 }
-nav.links{display:flex;gap:28px;font-size:15px;font-weight:600;color:var(--ink-soft);}
+nav.links{display:flex;gap:18px;font-size:14px;font-weight:600;color:var(--ink-soft);}
 nav.links a:hover{color:var(--stamp);}
 nav.links a.active{color:var(--stamp); border-bottom:2px solid var(--stamp); padding-bottom:3px;}
 .call-btn{
-  background:var(--ink); color:var(--paper); padding:9px 18px; border-radius:2px;
-  font-weight:600; font-size:14px; letter-spacing:.2px; border:2px solid var(--ink);
+  background:var(--ink); color:var(--paper); padding:7px 13px; border-radius:2px;
+  font-weight:600; font-size:13px; letter-spacing:.1px; border:2px solid var(--ink);
 }
 .call-btn:hover{background:var(--stamp); border-color:var(--stamp);}
 
@@ -79,18 +79,19 @@ nav.links a.active{color:var(--stamp); border-bottom:2px solid var(--stamp); pad
   background: var(--teal);
   color: #ffffff;
   border: 2px solid var(--ink);
-  padding: 6px 14px;
+  padding: 5px 11px;
   border-radius: 20px;
-  font-size: 13.5px;
+  font-size: 12.5px;
   font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   transition: all 0.2s ease;
   user-select: none;
   box-shadow: 2px 2px 0 var(--ink);
-  margin-left: 8px;
+  margin-left: 10px;
+  white-space: nowrap;
 }
 .cms-lang-btn:hover {
   background: var(--stamp);
