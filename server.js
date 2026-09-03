@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 // Directories setup
 const DATA_DIR = path.join(__dirname, 'data');
-const UPLOAD_DIR = path.join(__dirname, 'uploads');
+const UPLOAD_DIR = path.join(__dirname, '..', 'site-uploads');
 const CONTENT_FILE = path.join(DATA_DIR, 'site-content.json');
 
 if (!fs.existsSync(DATA_DIR)) {
