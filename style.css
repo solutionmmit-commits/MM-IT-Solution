@@ -560,47 +560,22 @@ body.cms-edit-active [data-cms-key]:hover,
 @media (max-width: 480px) {
   :root { --space: 12px; --space-lg: 20px; }
   .wrap { padding: 0 16px; }
-  .nav { padding: 12px 16px; }
+  .nav { padding: 10px 16px; flex-wrap: wrap; justify-content: space-between; }
   .hero h1 { font-size: 28px; line-height: 1.2; }
   .hero p.lead { font-size: 15px; }
-  .hero .btn-group { flex-direction: column; gap: 10px; }
-  .hero .btn-group a { width: 100%; text-align: center; }
-  .stamp-card { padding: 16px; }
+  .hero-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+  .hero-actions a { width: 100%; text-align: center; }
+  .stamp-card { padding: 24px; margin-top: 30px; transform: rotate(0); box-shadow: 4px 4px 0 var(--ink); }
   .stamp-card h3 { font-size: 18px; }
-  .info-line { font-size: 14px; }
-  .info-line b { min-width: auto; display: block; margin-bottom: 4px; }
-  .call-btn, .wa-btn { width: 100%; justify-content: center; margin: 8px 0 0; }
-  .svc-grid { grid-template-columns: 1fr; gap: 16px; }
-  .svc-card { padding: 16px; }
-  .svc-card.big { padding: 16px; }
-  .svc-icon { width: 44px; height: 44px; }
-  .svc-num { font-size: 20px; }
-  .why-grid { grid-template-columns: 1fr; gap: 16px; }
-  .why-card { padding: 16px; }
-  .gallery-grid { grid-template-columns: 1fr; }
-  .test-grid { grid-template-columns: 1fr; }
-  .test-card { padding: 16px; }
+  .info-line { font-size: 14px; display: flex; flex-direction: row; gap: 10px; align-items: flex-start; }
+  .info-line b { min-width: 70px; display: inline-block; margin-bottom: 0; }
+  .nav-actions { width: 100%; justify-content: center; margin-top: 10px; gap: 6px; border-top: 1px solid var(--line); padding-top: 10px; }
+  .call-btn, .wa-btn, .cms-lang-btn { flex: 1; text-align: center; font-size: 11px; padding: 10px 4px; justify-content: center; margin: 0; }
+  .brand { font-size: 17px; }
+  .site-logo-img { height: 32px; }
+  .svc-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
   .steps-grid { grid-template-columns: 1fr; }
-  .step-card { padding: 16px; }
-  .pkg-grid { grid-template-columns: 1fr; }
-  .pkg-card { padding: 16px; }
-  .pkg-badge { font-size: 11px; padding: 2px 8px; }
-  .pkg-price { font-size: 24px; }
-  .pkg-list li { font-size: 14px; }
-  .cta-band .wrap { flex-direction: column; gap: 20px; text-align: center; }
-  .cta-band h2 { font-size: 22px; }
-  .foot-grid { grid-template-columns: 1fr; gap: 24px; }
-  .map-box { min-height: 240px; }
-  .page-hero h1 { font-size: 24px; }
-  .page-hero p { font-size: 14px; }
-  .receipt { padding: 16px; }
-  .cta-band { padding: 32px 0; }
-  .fb-btn, .wa-btn { width: 100%; justify-content: center; }
-  .cms-bar { padding: 0 12px; font-size: 12px; }
-  .cms-modal { margin: 12px; max-width: calc(100% - 24px); }
-  .cms-modal-body { padding: 16px; }
-  #cms-toast-container { left: 12px; right: 12px; bottom: 12px; }
-  .cms-toast { max-width: 100%; }
 }
 
 /* Mobile: 481px - 768px */

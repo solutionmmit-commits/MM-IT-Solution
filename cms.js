@@ -86,6 +86,9 @@
       "shop.label.hours": "সময়",
       "shop.label.facebook": "ফেসবুক",
       "shop.card.title": "দোকানের তথ্য",
+      "shop.val.address": "ফুটকিবাড়ী বাজার, মাড়েয়া, বোদা, পঞ্চগড়",
+      "shop.val.hours": "সকাল ১০টা – রাত ১০টা (সবসময় খোলা)",
+      "shop.val.facebook": "fb.com/mmitsolution21",
       // services section
       "services.kicker": "সেবাসমূহ",
       "services.title": "আপনার প্রয়োজন অনুযায়ী বেছে নিন",
@@ -177,6 +180,9 @@
       "shop.label.hours": "Hours",
       "shop.label.facebook": "Facebook",
       "shop.card.title": "Shop Info",
+      "shop.val.address": "Futukibari Bazar, Mareya, Boda, Panchagarh",
+      "shop.val.hours": "10 AM – 10 PM (Always Open)",
+      "shop.val.facebook": "fb.com/mmitsolution21",
       // services section
       "services.kicker": "Services",
       "services.title": "Choose What You Need",
