@@ -69,6 +69,11 @@
       "nav.gallery": "গ্যালারি",
       "nav.reviews": "রিভিউ",
       "nav.contact": "যোগাযোগ",
+      // shop
+      "shop.name": "MM IT Solution",
+      // common
+      "common.whatsapp": "💬 WhatsApp",
+      "common.call": "☎ কল করুন",
       // hero
       "hero.kicker": "ফুটকিবাড়ী, পঞ্চগড়",
       "hero.title": "আপনার সকল <span>অনলাইন ও অফলাইন</span> তথ্যপ্রযুক্তি সেবার ঠিকানা",
@@ -138,6 +143,12 @@
       "online.kicker": "দূর থেকে অর্ডার করা যায়",
       "online.title": "অনলাইন সেবা",
       "online.lead": "ব্যবসা বা ব্যক্তিগত কাজের জন্য ডিজিটাল সমাধান — ঘরে বসেই ফোন বা ফেসবুকে যোগাযোগ করে অর্ডার করা যায়।",
+      "online.steps.kicker": "কার্যপ্রণালী",
+      "online.steps.title": "কাজের ধাপ",
+      "online.pkg.kicker": "মূল্য তালিকা",
+      "online.pkg.title": "প্যাকেজ",
+      "online.pkg.note": "স্বচ্ছ দাম, কোনো লুকানো খরচ নেই।",
+      "online.pkg.btn": "অডার্র করুন",
       "online.cta.title": "প্রজেক্ট শুরু করতে চান?",
       "online.cta.lead": "আজই যোগাযোগ করুন — আমরা আপনার ব্যবসার ডিজিটাল সমাধান তৈরি করে দেব।"
     },
@@ -149,6 +160,11 @@
       "nav.gallery": "Gallery",
       "nav.reviews": "Reviews",
       "nav.contact": "Contact",
+      // shop
+      "shop.name": "MM IT Solution",
+      // common
+      "common.whatsapp": "💬 WhatsApp",
+      "common.call": "☎ Call Now",
       // hero
       "hero.kicker": "Futukibari, Panchagarh",
       "hero.title": "Your One-Stop Destination for <span>Online & Offline</span> IT Services",
@@ -164,15 +180,15 @@
       // services section
       "services.kicker": "Services",
       "services.title": "Choose What You Need",
-      "services.offline.tag": "দোকানে এসে",
-      "services.offline.title": "অফলাইন সেবা",
-      "services.offline.desc": "সরাসরি দোকানে এসে করানোর মতো কাজ — ছবি তোলা, ফটোকপি, প্রিন্ট ও ফরম পূরণ।",
-      "services.offline.li1": "ফটো স্টুডিও",
-      "services.offline.li2": "ফটোকপি ও প্রিন্টিং",
-      "services.offline.li3": "কম্পোজিং",
-      "services.offline.li4": "অনলাইন আবেদন সহায়তা (NID, জন্মনিবন্ধন, পাসপোর্ট)",
-      "services.offline.li5": "চাকরির আবেদন সহায়তা",
-      "services.offline.btn": "অফলাইন সেবা দেখুন →",
+      "services.offline.tag": "In-Shop",
+      "services.offline.title": "Offline Services",
+      "services.offline.desc": "Services provided directly at our shop — photography, photocopying, printing, and form filling.",
+      "services.offline.li1": "Photo Studio",
+      "services.offline.li2": "Photocopy & Printing",
+      "services.offline.li3": "Composing & Typing",
+      "services.offline.li4": "Online Application Support (NID, Birth Reg, Passport)",
+      "services.offline.li5": "Job Application Support",
+      "services.offline.btn": "View Offline Services →",
       "services.online.tag": "Order Remotely",
       "services.online.title": "Online Services",
       "services.online.desc": "Digital services you can order from home by phone or Facebook — tech solutions for your business.",
@@ -218,6 +234,12 @@
       "online.kicker": "Order From Anywhere",
       "online.title": "Online Services",
       "online.lead": "Digital solutions for business or personal needs — contact us by phone or Facebook and place your order from anywhere.",
+      "online.steps.kicker": "Process",
+      "online.steps.title": "How We Work",
+      "online.pkg.kicker": "Pricing Plans",
+      "online.pkg.title": "Packages",
+      "online.pkg.note": "Transparent pricing, no hidden costs.",
+      "online.pkg.btn": "Order Now",
       "online.cta.title": "Ready to Start a Project?",
       "online.cta.lead": "Contact us today — we will build the digital solution your business needs."
     }
@@ -637,11 +659,15 @@
       }
     });
 
-    // Also update document title for page context
-    if (document.title.includes('অফলাইন')) {
-      document.title = currentLang === 'en' ? 'Offline Services — MM IT Solution' : 'অফলাইন সেবা — MM IT Solution';
-    } else if (document.title.includes('অনলাইন')) {
-      document.title = currentLang === 'en' ? 'Online Services — MM IT Solution' : 'অনলাইন সেবা — MM IT Solution';
+    // Update document title for page context
+    const isEnglish = currentLang === 'en';
+    if (document.title.includes('অফলাইন') || document.title.includes('Offline')) {
+      document.title = isEnglish ? 'Offline Services — MM IT Solution' : 'অফলাইন সেবা — MM IT Solution';
+    } else if (document.title.includes('অনলাইন') || document.title.includes('Online')) {
+      document.title = isEnglish ? 'Online Services — MM IT Solution' : 'অনলাইন সেবা — MM IT Solution';
+    } else {
+      // Home page or other
+      document.title = isEnglish ? 'MM IT Solution — Panchagarh (IT Services)' : 'MM IT Solution — পঞ্চগড় (আইটি সেবা)';
     }
 
     updateLangBtnUI();
