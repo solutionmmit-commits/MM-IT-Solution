@@ -629,6 +629,13 @@
     if (!adminBar) return;
     
     adminBar.style.display = isAdmin ? 'flex' : 'none';
+
+    if (isAdmin) {
+      document.body.classList.add('cms-admin-active');
+    } else {
+      document.body.classList.remove('cms-admin-active');
+    }
+
     if (!isAdmin) return;
 
     const actions = adminBar.querySelector('.cms-bar-actions');

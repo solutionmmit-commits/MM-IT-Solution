@@ -370,8 +370,11 @@ footer h2{color:var(--paper); font-size:26px;}
 /* ==========================================================================
    ELEMENTOR-STYLE VISUAL CMS & ADMIN STYLES
    ========================================================================== */
-body.cms-edit-active {
-  padding-top: 50px;
+body.cms-admin-active {
+  padding-top: 50px !important;
+}
+body.cms-admin-active header {
+  top: 50px !important;
 }
 
 /* ---------- Top Admin Toolbar ---------- */
