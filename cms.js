@@ -658,16 +658,50 @@
     return 'homeGallery';
   }
 
-  // Setup Language Switcher Button in Header Nav
+  // Setup Language Switcher & Mobile Menu in Header Nav
   function setupLanguageUI() {
     const nav = document.querySelector('header .nav') || document.querySelector('.nav');
-    if (nav && !document.getElementById('cms-lang-btn')) {
+    if (!nav) return;
+
+    // 1. Add Mobile Menu Toggle Button if not exists
+    if (!document.getElementById('cms-menu-toggle')) {
+      const toggle = document.createElement('button');
+      toggle.id = 'cms-menu-toggle';
+      toggle.className = 'menu-toggle';
+      toggle.innerHTML = '☰';
+      toggle.onclick = () => {
+        const links = document.querySelector('nav.links');
+        if (links) {
+          links.classList.toggle('show');
+          toggle.innerHTML = links.classList.contains('show') ? '✕' : '☰';
+        }
+      };
+      nav.prepend(toggle);
+    }
+
+    // 2. Wrap Actions (Call, WA, Lang) for mobile grouping
+    let actionsWrap = document.querySelector('.nav-actions');
+    if (!actionsWrap) {
+      actionsWrap = document.createElement('div');
+      actionsWrap.className = 'nav-actions';
+
+      const callBtn = document.querySelector('.call-btn');
+      const waBtn = document.querySelector('.wa-btn');
+
+      if (callBtn) actionsWrap.appendChild(callBtn);
+      if (waBtn) actionsWrap.appendChild(waBtn);
+
+      nav.appendChild(actionsWrap);
+    }
+
+    // 3. Add Lang Button to Actions Wrap
+    if (!document.getElementById('cms-lang-btn')) {
       const btn = document.createElement('button');
       btn.id = 'cms-lang-btn';
       btn.className = 'cms-lang-btn';
       btn.setAttribute('type', 'button');
       btn.setAttribute('title', 'ভাষা পরিবর্তন / Switch Language');
-      nav.appendChild(btn);
+      actionsWrap.appendChild(btn);
       updateLangBtnUI();
     }
   }
