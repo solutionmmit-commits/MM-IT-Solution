@@ -241,7 +241,48 @@
       "online.pkg.note": "Transparent pricing, no hidden costs.",
       "online.pkg.btn": "Order Now",
       "online.cta.title": "Ready to Start a Project?",
-      "online.cta.lead": "Contact us today — we will build the digital solution your business needs."
+      "online.cta.lead": "Contact us today — we will build the digital solution your business needs.",
+      // offline services list
+      "off.svc1.t": "Graphic Design", "off.svc1.d": "Creative & professional logo, banner, and social media design.",
+      "off.svc2.t": "Promotional Video", "off.svc2.d": "Attractive video creation for shop, product, and service promotion.",
+      "off.svc3.t": "Studio Photo", "off.svc3.d": "Passport, stamp size, and family photo printing in studio.",
+      "off.svc4.t": "Photo Restoration", "off.svc4.d": "Creating new photos from old or damaged ones.",
+      "off.svc5.t": "Visiting Card", "off.svc5.d": "Professional visiting card design and premium printing.",
+      "off.svc6.t": "Leaflet Design", "off.svc6.d": "Leaflet, flyer, and brochure design for promotion.",
+      "off.svc7.t": "Halkhata Card", "off.svc7.d": "Business Halkhata and greeting card design.",
+      "off.svc8.t": "Wedding Card", "off.svc8.d": "Wedding, Gaye Holud, and Birthday invitation cards.",
+      "off.svc9.t": "Cash Memo", "off.svc9.d": "Cash memo, invoice, and receipt books for business.",
+      "off.svc10.t": "Online Applications", "off.svc10.d": "Any government and private online applications.",
+      "off.svc11.t": "Job Application", "off.svc11.d": "Accurate filling of government and private job applications.",
+      "off.svc12.t": "College Admission", "off.svc12.d": "Online admission applications for XI, Honours, and Degree.",
+      "off.svc13.t": "Form Fill-up", "off.svc13.d": "Exam forms, admission forms, and any online form filling.",
+      "off.svc14.t": "NID Correction", "off.svc14.d": "NID correction, new registration, and lost card recovery.",
+      "off.svc15.t": "Tax Registration", "off.svc15.d": "Trade license and municipality related registrations.",
+      "off.svc16.t": "Computer Compose", "off.svc16.d": "CV, applications, and any document composing.",
+      "off.svc17.t": "Photocopy", "off.svc17.d": "Color and B&W photocopy at low cost.",
+      "off.svc18.t": "Scanning", "off.svc18.d": "High-resolution scanning of documents and photos.",
+      "off.svc19.t": "Email Sending", "off.svc19.d": "Sending urgent emails and CV/documents.",
+      "off.svc20.t": "Train Ticket", "off.svc20.d": "Online booking for Bangladesh Railway tickets.",
+      "off.svc21.t": "Bus Ticket", "off.svc21.d": "Online booking for bus tickets across the country.",
+      "off.svc22.t": "Air Ticket", "off.svc22.d": "Domestic and international air ticket booking.",
+      "off.svc23.t": "Allowance App", "off.svc23.d": "Old age and widow allowance applications.",
+      "off.svc24.t": "Stationery & IT", "off.svc24.d": "All kinds of stationery, electronics, and cosmetics items.",
+      // online services list
+      "on.svc1.t": "Website Design", "on.svc1.d": "Responsive business, e-commerce, and portfolio websites.",
+      "on.svc2.t": "Digital Marketing", "on.svc2.d": "Facebook/Google Ads, lead generation, and content marketing.",
+      "on.svc3.t": "Graphic Design", "on.svc3.d": "Logo, brand identity, and social media post design.",
+      "on.svc4.t": "E-Commerce", "on.svc4.d": "Online shop setup, payment gateway, and order management.",
+      "on.svc5.t": "Domain & Hosting", "on.svc5.d": "Domain registration, hosting, SSL, and business email.",
+      "on.svc6.t": "IT Support", "on.svc6.d": "Computer servicing, networking, and software support.",
+      // online steps
+      "on.step1.t": "Discussion", "on.step1.d": "Understanding your goals, budget, and timeline.",
+      "on.step2.t": "Planning", "on.step2.d": "Defining scope, timeline, and design concepts.",
+      "on.step3.t": "Development", "on.step3.d": "Design & dev — providing updates at every stage.",
+      "on.step4.t": "Launch & Support", "on.step4.d": "We stay with you even after going live.",
+      // online pkgs
+      "on.pkg1.n": "Starter", "on.pkg1.s": "For new businesses",
+      "on.pkg2.n": "Business", "on.pkg2.s": "Most popular choice",
+      "on.pkg3.n": "Enterprise", "on.pkg3.s": "For large organizations"
     }
   };
 
