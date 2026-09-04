@@ -55,20 +55,8 @@ const upload = multer({
   }
 });
 
-// Cloudinary Config (Required for Render Persistence)
+// Cloudinary Config (SDK automatically looks for CLOUDINARY_URL env var)
 const cloudinary = require('cloudinary').v2;
-if (process.env.CLOUDINARY_URL) {
-  const urlParts = process.env.CLOUDINARY_URL.split('://')[1].split(':');
-  const apiKey = urlParts[0];
-  const apiSecret = urlParts[1].split('@')[0];
-  const cloudName = urlParts[1].split('@')[1];
-
-  cloudinary.config({
-    cloud_name: cloudName,
-    api_key: apiKey,
-    api_secret: apiSecret
-  });
-}
 
 // Admin credentials (Default: admin / 77520200Kmm)
 const ADMIN_USER = process.env.ADMIN_USER || 'admin';
@@ -104,7 +92,7 @@ const defaultData = {
   ],
   onlineGallery: [
     { id: "on_g1", title: "ই-কমার্স ও ওয়েবসাইট ডিজাইনের নমুনা", img: "", placeholder: "ওয়েবসাইট স্ক্রিনশট বসান" },
-    { id: "on_g2", title: "ফেসবুক অ্যাডস ও মার্কেটিংব্য ব্যানার", img: "", placeholder: "মার্কেটিং ব্যানার বসান" },
+    { id: "on_g2", title: "ফেসবুক অ্যাডস ও মার্কেটিং ব্যানার", img: "", placeholder: "মার্কেটিং ব্যানার বসান" },
     { id: "on_g3", title: "ব্র্যান্ড লোগো ও গ্রাফিক ডিজাইন নমুনা", img: "", placeholder: "লোগো ডিজাইন নমুনা বসান" },
     { id: "on_g4", title: "সফটওয়্যার ও আইটি সলিউশন প্রকল্প", img: "", placeholder: "আইটি প্রজেক্ট নমুনা বসান" }
   ],
@@ -160,14 +148,14 @@ app.post('/api/upload', (req, res) => {
     }
 
     try {
+      // Automatic upload if CLOUDINARY_URL is present
       if (process.env.CLOUDINARY_URL) {
         const result = await cloudinary.uploader.upload(req.file.path, {
           folder: 'mm_it_solution'
         });
-        fs.unlinkSync(req.file.path);
+        if (fs.existsSync(req.file.path)) fs.unlinkSync(req.file.path);
         return res.json({
           success: true,
-          message: 'ছবি ক্লাউডে সফলভাবে আপলোড হয়েছে!',
           url: result.secure_url
         });
       }
@@ -175,12 +163,11 @@ app.post('/api/upload', (req, res) => {
       const imageUrl = `/uploads/${req.file.filename}`;
       return res.json({
         success: true,
-        message: 'ছবি লোকাল সার্ভারে আপলোড হয়েছে (সতর্কবার্তা: ডেপ্লয় করলে ডিলিট হতে পারে)',
         url: imageUrl
       });
     } catch (uploadErr) {
-      console.error('Cloudinary upload error:', uploadErr);
-      return res.status(500).json({ error: 'ক্লাউডে আপলোড করতে সমস্যা হয়েছে' });
+      console.error('Upload error details:', uploadErr);
+      return res.status(500).json({ error: 'সার্ভারে আপলোড ব্যর্থ হয়েছে: ' + (uploadErr.message || 'Error') });
     }
   });
 });
