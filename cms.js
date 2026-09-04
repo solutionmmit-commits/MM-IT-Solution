@@ -809,7 +809,6 @@
           itemEl.style.backgroundSize = 'cover';
           itemEl.style.backgroundPosition = 'center';
           itemEl.innerHTML = `
-            <div class="gallery-caption">${item.title}</div>
             ${isEditMode ? `
               <div class="cms-overlay-controls">
                 <button class="cms-icon-btn cms-edit-img-btn" data-id="${item.id}">📷 পরিবর্তন</button>
@@ -820,7 +819,7 @@
         } else {
           itemEl.style.backgroundImage = 'none';
           itemEl.innerHTML = `
-            <span class="plus">+</span>${item.placeholder || item.title}
+            <span class="plus">+</span>
             ${isEditMode ? `
               <div class="cms-overlay-controls">
                 <button class="cms-icon-btn cms-edit-img-btn" data-id="${item.id}">📷 আপলোড</button>
