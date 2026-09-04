@@ -695,6 +695,8 @@
         if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
           el.placeholder = val;
         } else {
+          // If the element has children (like icons), we only want to update the text node
+          // but for simplicity, we update innerHTML as long as keys are correct
           el.innerHTML = val;
         }
       }
@@ -702,13 +704,13 @@
 
     // Update document title for page context
     const isEnglish = currentLang === 'en';
-    if (document.title.includes('অফলাইন') || document.title.includes('Offline')) {
+    const pageTitle = document.title;
+    if (pageTitle.includes('অফলাইন') || pageTitle.includes('Offline')) {
       document.title = isEnglish ? 'Offline Services — MM IT Solution' : 'অফলাইন সেবা — MM IT Solution';
-    } else if (document.title.includes('অনলাইন') || document.title.includes('Online')) {
+    } else if (pageTitle.includes('অনলাইন') || pageTitle.includes('Online')) {
       document.title = isEnglish ? 'Online Services — MM IT Solution' : 'অনলাইন সেবা — MM IT Solution';
     } else {
-      // Home page or other
-      document.title = isEnglish ? 'MM IT Solution — Panchagarh (IT Services)' : 'MM IT Solution — পঞ্চগড় (আইটি সেবা)';
+      document.title = isEnglish ? 'MM IT Solution — IT Services' : 'MM IT Solution — আইটি সেবা';
     }
 
     updateLangBtnUI();
